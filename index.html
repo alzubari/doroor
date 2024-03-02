@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <title>doroor</title>
+
+ 
+  <style>
+  .container {
+  position:relative;
+  width:510px;
+  height:510px;
+}  
+  img {
+  position: absolute;
+  top: -510px;
+  left: -180px;
+  margin: 0;
+  width:200%;
+  height:200%;
+  transition-duration: 3s;
+}
+
+ .cover {
+  position: absolute;
+  top: -510px;
+  left: -180px;
+  margin: 0;
+  width:200%;
+  height:200%;
+  background: url(02.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  border: 2px solid black;
+  
+}
+ .clip01{
+  clip-path: polygon(50% 50%, 25% 100%, 75% 100%);
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.clip02{
+  clip-path: polygon(50% 50%, 0% 150%, 0% 0%, 100% 0%, 100% 150%);
+}
+
+h2{
+  color:#000;
+  text-align:center;
+  font-size:2em;
+}
+.warpper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab{
+  cursor: pointer;
+  padding:10px 20px;
+  margin:0px 2px;
+  background:#000;
+  display:inline-block;
+  color:#fff;
+  border-radius:3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+.panels{
+  background:#fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width:100%;
+  max-width:718px;
+  border-radius:3px;
+  overflow:hidden;
+  padding:20px;  
+}
+.panel{
+  display:none;
+  animation: fadein .8s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold;
+  z-index: 10;
+  position: absolute;
+  color:white;
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel,
+#four:checked ~ .panels #four-panel,
+#five:checked ~ .panels #five-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab,
+#four:checked ~ .tabs #four-tab,
+#five:checked ~ .tabs #five-tab{
+  background:#fffffff6;
+  color:#000;
+  border-top: 3px solid #000;
+}
+  </style>
+
+  
+
+</head>
+
+<body onload="myFunction()">
+<h2>الطوالع والدرور</h2>
+<div class="warpper">
+  <input class="radio" id="one" name="group" type="radio" checked>
+  <input class="radio" id="two" name="group" type="radio">
+  <input class="radio" id="three" name="group" type="radio">
+  <input class="radio" id="four" name="group" type="radio">
+  <input class="radio" id="five" name="group" type="radio">
+  <div class="tabs">
+  <label class="tab" id="one-tab" for="one">ديرة الدرور</label>
+  <label class="tab" id="two-tab" for="two">بوصلة الرياح</label>
+  <label class="tab" id="three-tab" for="three">مواسم وفرة الأسماك</label>
+  <label class="tab" id="four-tab" for="four">محاصيل الخضروات والفواكه</label>
+  <label class="tab" id="five-tab" for="five">ملامح البيئة البرية والرعوية</label>
+    </div>
+  <div class="panels">
+  <div class="panel" id="one-panel">
+    <div class="panel-title">ديرة الدرور</div>
+    <div class='container'>
+      <a href="d01.png" target="_self">
+      <img src="d01.png">
+      </a>
+      <div class='cover clip02'></div>
+    </div>
+  </div>
+  <div class="panel" id="two-panel">
+    <div class="panel-title">بوصلة الرياح</div>
+    <div class='container'>
+      <a href="d02.png" target="_self">
+	<img src="d02.png">
+      </a>
+      <div class='cover clip02'></div>
+    </div>
+  </div>
+  <div class="panel" id="three-panel">
+    <div class="panel-title">مواسم وفرة الأسماك</div>
+    <div class='container'>
+      <a href="d03.png" target="_self">
+	<img src="d03.png">
+      </a>
+      <div class='cover clip02'></div>
+    </div>
+  </div>
+  <div class="panel" id="four-panel">
+    <div class="panel-title">محاصيل الخضروات والفواكه</div>
+    <div class='container'>
+      <a href="d04.png" target="_self">
+	<img src="d04.png">
+      </a>
+      <div class='cover clip02'></div>
+    </div>
+  </div>
+  <div class="panel" id="five-panel">
+    <div class="panel-title">ملامح البيئة البرية والرعوية</div>
+    <div class='container'>
+      <a href="d05.png" target="_self">
+	<img src="d05.png">
+      </a>
+      <div class='cover clip02'></div>
+    </div>
+  </div>
+  </div>
+</div>
+<script>
+function myFunction() {
+const month = ["36","66","94","125","159","186","215","245","275","305","335","365"];
+const d = new Date();
+let name = month[d.getMonth()];
+const collection = document.getElementsByTagName("img");
+collection[0].style.transform = "rotate("+name+"deg)";
+collection[1].style.transform = "rotate("+name+"deg)";
+collection[2].style.transform = "rotate("+name+"deg)";
+collection[3].style.transform = "rotate("+name+"deg)";
+collection[4].style.transform = "rotate("+name+"deg)";
+}
+
+</script>
+</body>
+</html>
